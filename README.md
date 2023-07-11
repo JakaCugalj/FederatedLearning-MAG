@@ -1,8 +1,6 @@
-Here's a sample README for your project:
-
 # Federated Learning - MAG
 
-This project implements several federated learning algorithms, including FedAvg, FedProx, SCAFFOLD, FedVARP, ClusterFedVARP and FedRolex.
+This project implements several federated learning algorithms, including FedAvg, FedProx, SCAFFOLD, FedVARP, ClusterFedVARP and FedRolex. It also provides an implementation of all algorithms combined called FedSCAVAR.
 
 ## Requirements
 
@@ -17,12 +15,28 @@ This project implements several federated learning algorithms, including FedAvg,
 
 To install the required libraries, run the following command:
 
+### CUDA
 ```sh
-conda create --name FederatedLearning-MAG-GPU pytorch torchvision pytorch-cuda=11.8 -c pytorch -c nvidia
+conda create --name FederatedLearning-MAG-GPU pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+conda install -n FederatedLearning-MAG-GPU dearpygui matplotlib numpy
+```
+
+### CPU
+```sh
+conda create --name FederatedLearning-MAG-GPU pytorch torchvision torchaudio cpuonly -c pytorch
 conda install -n FederatedLearning-MAG-GPU dearpygui matplotlib numpy
 ```
 
 ## Usage
+### UI
+```python
+conda activate FederatedLearning-MAG-GPU
+python main.py
+```
+
+![image](https://github.com/JakaCugalj/FederatedLearning-MAG/assets/33024213/3fa69b84-0939-4ba9-adc9-345d4884ff87)
+
+### Code example usage of FedAvg
 
 ```python
 
@@ -54,3 +68,15 @@ server = FederatedServerAvg(model=LeNet5(), clients=clients, rounds=500, server_
 server.fit()
 
 ```
+
+## References
+
+- McMahan, H. Brendan, et al. "Communication-efficient learning of deep networks from decentralized data." arXiv:1602.05629 (2016). [Link](https://arxiv.org/abs/1602.05629)
+
+- Li, Tian, et al. "Federated optimization in heterogeneous networks." arXiv:1812.06127 (2018). [Link](https://arxiv.org/abs/1812.06127)
+
+- Karimireddy, Sai Praneeth Reddy, et al. "SCAFFOLD: Stochastic controlled averaging for on-device federated learning." arXiv:1910.06378 (2019). [Link](https://arxiv.org/abs/1910.06378)
+
+- Jhunjhunwala, Divyansh, et al. "FedVARP: Tackling the Variance Due to Partial Client Participation in Federated Learning" arXiv:2207.14130 (2022). [Link](https://arxiv.org/abs/2207.14130)
+
+- Alam, Samiul, et al. "FedRolex: Model-Heterogeneous Federated Learning with Rolling Sub-Model Extraction" arXiv:2207.14130 (2022). [Link](https://arxiv.org/abs/2212.01548)

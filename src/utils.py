@@ -208,7 +208,7 @@ def dataset_split2(dataset, number_of_clients, split_type="iid", min_classes=2, 
             split_indices = [indices[:int(len(indices) * ratio)] 
                              for indices, ratio in zip(torch.chunk(rand_indices, number_of_clients), torch.rand(number_of_clients))]      
         
-        case "dirichlet":
+        case "dirichlet": #https://github.com/vaseline555/Federated-Learning-in-PyTorch/blob/main/src/loaders/split.py
             K = number_of_clients
             def sample_with_mask(mask, ideal_samples_counts, concentration, need_adjustment=False):
                 num_remaining_classes = int(mask.sum())

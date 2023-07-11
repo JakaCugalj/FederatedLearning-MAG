@@ -34,7 +34,7 @@ conda activate FederatedLearning-MAG-GPU
 python main.py
 ```
 
-![image](https://github.com/JakaCugalj/FederatedLearning-MAG/assets/33024213/3fa69b84-0939-4ba9-adc9-345d4884ff87)
+![image](https://github.com/JakaCugalj/FederatedLearning-MAG/assets/33024213/f4256c8a-881d-43f3-8667-91e39ad49131)
 
 ### Code example usage of FedAvg
 
